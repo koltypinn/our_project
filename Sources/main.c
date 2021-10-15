@@ -1,7 +1,6 @@
-
 #include "../Includes/minishell.h"
 
-void		parsecmd(char *com, t_data *data, char **env)
+void	parsecmd(char *com, t_data *data, char **env)
 {
 	char	**my_com;
 
@@ -17,8 +16,8 @@ void		parsecmd(char *com, t_data *data, char **env)
 			data = do_setenv(my_com, data);
 		else if (!(ft_strcmp(my_com[0], "unsetenv")))
 			data = do_unsetenv(my_com, data);
-		else if (!(ft_strcmp(my_com[0], "env")) ||
-			!(ft_strcmp(my_com[0], "/usr/bin/env")))
+		else if (!(ft_strcmp(my_com[0], "env"))
+			|| !(ft_strcmp(my_com[0], "/usr/bin/env")))
 			do_env(data);
 		else if (!(ft_strcmp(my_com[0], "exit")))
 			exit(0);
@@ -36,7 +35,7 @@ static void	my_int(int ret)
 	ret = 0;
 }
 
-int			main(int argc, char **argv, char **env)
+int	main(int argc, char **argv, char **env)
 {
 	char	*cmd;
 	t_data	*data;
